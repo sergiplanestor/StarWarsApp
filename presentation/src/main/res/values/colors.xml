@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Colors -->
+    <color name="blue_gray_200">#B0BEC5</color>
+    <color name="blue_gray_500">#607D8B</color>
+    <color name="blue_gray_light">#8EACBB</color>
+    <color name="blue_gray_dark">#34515E</color>
+
+    <color name="red_900">#B71C1C</color>
+    <color name="red_light">#F05545</color>
+    <color name="red_light_opacity_70">#B3F05545</color>
+    <color name="red_dark">#7F0000</color>
+    <color name="red_dark_opacity_70">#B37F0000</color>
+    <color name="red_error_200">#EF9A9A</color>
+    <color name="red_error_600">#E53935</color>
+
+    <color name="gray_800">#424242</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_900">#212121</color>
+
+    <color name="black">#FF000000</color>
+    <color name="black_opacity_70">#B3000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_opacity_70">#B3FFFFFF</color>
+
+    <!-- Default theme colors -->
+    <!-- Primary -->
+    <color name="primaryColor">@color/blue_gray_500</color>
+    <color name="primaryLightColor">@color/blue_gray_light</color>
+    <color name="primaryDarkColor">@color/blue_gray_dark</color>
+    <!-- Secondary -->
+    <color name="secondaryColor">@color/red_900</color>
+    <color name="secondaryLightColor">@color/red_light</color>
+    <color name="secondaryDarkColor">@color/red_dark</color>
+    <!-- Text color -->
+    <color name="primaryTextColor">@color/black</color>
+    <color name="primaryTextColorOpacity70">@color/black_opacity_70</color>
+    <color name="primaryTextColorAccent">@color/secondaryDarkColor</color>
+    <color name="primaryTextColorAccentOpacity70">@color/red_dark_opacity_70</color>
+    <color name="secondaryTextColor">@color/white</color>
+
+</resources>

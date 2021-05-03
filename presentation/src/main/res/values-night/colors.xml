@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark theme colors -->
+    <!-- Primary -->
+    <color name="primaryColor">@color/gray_800</color>
+    <color name="primaryLightColor">@color/gray_700</color>
+    <color name="primaryDarkColor">@color/gray_900</color>
+    <!-- Secondary -->
+    <color name="secondaryColor">@color/red_900</color>
+    <color name="secondaryLightColor">@color/red_light</color>
+    <color name="secondaryDarkColor">@color/red_dark</color>
+    <!-- Text color -->
+    <color name="primaryTextColor">@color/white</color>
+    <color name="primaryTextColorOpacity70">@color/white_opacity_70</color>
+    <color name="primaryTextColorAccent">@color/secondaryLightColor</color>
+    <color name="primaryTextColorAccentOpacity70">@color/red_light_opacity_70</color>
+    <color name="secondaryTextColor">@color/blue_gray_200</color>
+
+</resources>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text styles -->
+    <style name="Text.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/abel_regular</item>
+        <item name="android:fontFamily">@font/abel_regular</item>
+        <item name="android:textSize">102sp</item>
+    </style>
+
+    <style name="Text.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="fontFamily">@font/abel_regular</item>
+        <item name="android:fontFamily">@font/abel_regular</item>
+        <item name="android:textSize">64sp</item>
+    </style>
+
+    <style name="Text.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/abel_regular</item>
+        <item name="android:fontFamily">@font/abel_regular</item>
+        <item name="android:textSize">51sp</item>
+    </style>
+
+    <style name="Text.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/abel_regular</item>
+        <item name="android:fontFamily">@font/abel_regular</item>
+        <item name="android:textSize">36sp</item>
+    </style>
+
+    <style name="Text.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/abel_regular</item>
+        <item name="android:fontFamily">@font/abel_regular</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
+    <style name="Text.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/abel_regular</item>
+        <item name="android:fontFamily">@font/abel_regular</item>
+        <item name="android:textSize">21sp</item>
+    </style>
+
+    <style name="Text.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/abel_regular</item>
+        <item name="android:fontFamily">@font/abel_regular</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="Text.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/abel_regular</item>
+        <item name="android:fontFamily">@font/abel_regular</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Text.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Text.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Text.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="Text.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Text.Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">10sp</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <!-- Separator -->
+    <style name="Separator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/primaryTextColorOpacity70</item>
+        <item name="android:alpha">.5</item>
+    </style>
+
+    <style name="Separator.Accent">
+        <item name="android:background">@color/primaryTextColorAccentOpacity70</item>
+    </style>
+
+    <!-- Buttons -->
+    <style name="Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAppearance">@style/Text.Button</item>
+    </style>
+
+    <style name="Button.Submit">
+        <item name="android:layout_marginStart">@dimen/margin_standard</item>
+        <item name="android:layout_marginEnd">@dimen/margin_standard</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textAppearance">@style/Text.Button</item>
+        <item name="android:layout_marginStart">@dimen/margin_standard</item>
+        <item name="android:layout_marginEnd">@dimen/margin_standard</item>
+        <item name="strokeColor">@color/primaryTextColorOpacity70</item>
+        <item name="rippleColor">@color/primaryTextColorAccentOpacity70</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Button.Outlined.Small" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textAppearance">@style/Text.Button</item>
+        <item name="android:layout_marginStart">@dimen/margin_standard</item>
+        <item name="android:layout_marginEnd">@dimen/margin_standard</item>
+        <item name="strokeColor">@color/primaryTextColorOpacity70</item>
+        <item name="rippleColor">@color/primaryTextColorAccentOpacity70</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Icons -->
+    <style name="Icon">
+        <item name="android:layout_width">@dimen/icon_size_standard</item>
+        <item name="android:layout_height">@dimen/icon_size_standard</item>
+        <item name="tint">@color/primaryTextColorOpacity70</item>
+        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+        <item name="background">?android:attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="Icon.Accent">
+        <item name="tint">@color/primaryTextColorAccentOpacity70</item>
+    </style>
+
+    <style name="Icon.Small">
+        <item name="android:layout_width">@dimen/icon_size_small</item>
+        <item name="android:layout_height">@dimen/icon_size_small</item>
+    </style>
+
+    <style name="Icon.Small.Accent">
+        <item name="tint">@color/primaryTextColorAccentOpacity70</item>
+    </style>
+
+    <style name="Icon.SemiSmall">
+        <item name="android:layout_width">@dimen/icon_size_semi_small</item>
+        <item name="android:layout_height">@dimen/icon_size_semi_small</item>
+    </style>
+
+    <style name="Icon.SemiSmall.Accent">
+        <item name="tint">@color/primaryTextColorAccentOpacity70</item>
+    </style>
+
+</resources>
