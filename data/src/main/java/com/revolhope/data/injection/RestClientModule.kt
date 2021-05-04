@@ -12,29 +12,31 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object RestClientModule {
 
-    @Singleton
     @Provides
-    fun providesOkhttpClient() : OkHttpClient =
+    @Singleton
+    @Named("Base Client")
+    fun providesOkhttpClient() : OkHttpClient.Builder =
         OkHttpClient.Builder().apply {
             if (BuildConfig.DEBUG) {
                 addInterceptor(HttpLoggingInterceptor())
             }
-        }.build()
+        }
 
-    @Singleton
     @Provides
-    fun providesApi(client: OkHttpClient): StarWarsApi =
+    @Singleton
+    fun providesApi(@Named("Base Client") clientBuilder: OkHttpClient.Builder): StarWarsApi =
         Retrofit.Builder()
             .baseUrl(BuildConfig.STAR_WARS_API_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
-            .client(client)
+            .client(clientBuilder.build())
             .build()
             .create(StarWarsApi::class.java)
 

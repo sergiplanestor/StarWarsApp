@@ -58,9 +58,10 @@ dependencies {
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofit_coroutines"
 
     // OkHttp
-    implementation "com.squareup.okhttp3:okhttp:$okhttp3"
-    implementation "com.squareup.okhttp3:okhttp-urlconnection:$okhttp3"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3"
+    // Set as 'api' in order to let app module access to it and dagger can have visibility
+    api "com.squareup.okhttp3:okhttp:$okhttp3"
+    api "com.squareup.okhttp3:okhttp-urlconnection:$okhttp3"
+    api "com.squareup.okhttp3:logging-interceptor:$okhttp3"
 
     // Testing
     testImplementation "junit:junit:$unit_junit"
