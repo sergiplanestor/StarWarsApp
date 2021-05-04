@@ -2,4 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.revolhope.mylibra">
 
+    <application>
+        <activity
+            android:name="com.revolhope.presentation.feature.splash.SplashActivity"
+            android:theme="@style/Theme.StarWarsApp.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.revolhope.presentation.feature.dashboard.DashboardActivity"
+            android:theme="@style/Theme.StarWarsApp" />
+    </application>
+
 </manifest>
