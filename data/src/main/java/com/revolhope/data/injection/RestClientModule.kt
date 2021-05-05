@@ -22,10 +22,12 @@ object RestClientModule {
     @Provides
     @Singleton
     @Named("Base Client")
-    fun providesOkhttpClient() : OkHttpClient.Builder =
+    fun providesOkhttpClient(): OkHttpClient.Builder =
         OkHttpClient.Builder().apply {
             if (BuildConfig.DEBUG) {
-                addInterceptor(HttpLoggingInterceptor())
+                addInterceptor(HttpLoggingInterceptor().apply {
+                    level = HttpLoggingInterceptor.Level.BODY
+                })
             }
         }
 
