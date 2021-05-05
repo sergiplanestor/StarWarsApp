@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface StarWarsApi {
 
-    @GET("/films")
+    @GET("api/films")
     suspend fun fetchFilms(): FilmsResponse
 
 }
