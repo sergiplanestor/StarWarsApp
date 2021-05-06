@@ -26,11 +26,29 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
         initObservers()
     }
 
+    override fun onStart() {
+        super.onStart()
+        onLoadData()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        onSaveChanges()
+    }
+
     open fun bindViews() {
         // Nothing to do here
     }
 
     open fun initObservers() {
+        // Nothing to do here
+    }
+
+    open fun onLoadData() {
+        // Nothing to do here
+    }
+
+    open fun onSaveChanges() {
         // Nothing to do here
     }
 

@@ -19,8 +19,11 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
     override fun bindViews() {
         super.bindViews()
         Handler(Looper.getMainLooper()).postDelayed(
-                { DashboardActivity.start(this@SplashActivity) },
-                SPLASH_DELAY
+            {
+                DashboardActivity.start(this@SplashActivity)
+                finish()
+            },
+            SPLASH_DELAY
         )
     }
 }

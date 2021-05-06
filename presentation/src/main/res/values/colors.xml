@@ -24,6 +24,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_opacity_70">#B3FFFFFF</color>
 
+    <color name="yellow">#FDD835</color>
+
     <!-- Default theme colors -->
     <!-- Primary -->
     <color name="primaryColor">@color/blue_gray_500</color>
