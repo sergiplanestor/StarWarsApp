@@ -2,13 +2,12 @@ package com.revolhope.presentation.library.base
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.revolhope.mylibra.R
 
-abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
-
-    abstract val binding: T
+abstract class BaseActivity : AppCompatActivity() {
 
     protected enum class NavTransition {
         LATERAL,
@@ -19,9 +18,13 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
         const val EXTRA_NAVIGATION_TRANSITION = "nav.transition"
     }
 
+    private lateinit var root: View
+
+    abstract fun inflateView(): View
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
+        setContentView(inflateView().also { root = it })
         bindViews()
         initObservers()
     }

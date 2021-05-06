@@ -22,12 +22,6 @@ class SearchView @JvmOverloads constructor(
 
     private val binding = ComponentSearchViewBinding.inflate(context.layoutInflater, this, true)
 
-    /*EPISODES(0, R.string.episodes),
-        CHARACTERS(1, R.string.characters),
-        PLANETS(2, R.string.planets),
-        SPECIES(3, R.string.species),
-        UNKNOWN(-1, -1);*/
-
     // Public properties
     var searchType: SearchTypeModel = SearchTypeModel.Planets()
         set(value) {
@@ -45,7 +39,7 @@ class SearchView @JvmOverloads constructor(
             SelectorPillUIModel(
                 it.id,
                 it.text.orEmpty(),
-                isSelected = it == searchType
+                isSelected = it.id == searchType.id
             )
         }
     private var inputText: String
@@ -53,7 +47,8 @@ class SearchView @JvmOverloads constructor(
         set(value) {
             binding.searchEditText.setText(value)
         }
-    private val isFieldValid: Boolean get() = inputText.isBlank().not().also(::changeInputErrorState)
+    private val isFieldValid: Boolean
+        get() = inputText.isBlank().not().also(::changeInputErrorState)
 
 
     init {
@@ -69,7 +64,12 @@ class SearchView @JvmOverloads constructor(
     private fun bindEditText() {
         binding.searchEditText.hint = context.getString(
             R.string.search_for,
-            searchType.text?.lowerCase.orEmpty()
+            searchType.text.let {
+                if (it.isNullOrBlank()) {
+                    searchType.fillText()
+                }
+                searchType.text
+            }?.lowerCase.orEmpty()
         )
     }
 
@@ -102,7 +102,8 @@ class SearchView @JvmOverloads constructor(
     }
 
     private fun changeInputErrorState(isValid: Boolean) {
-        binding.searchInputLayout.error = if(isValid) null else context.getString(R.string.search_query_invalid)
+        binding.searchInputLayout.error =
+            if (isValid) null else context.getString(R.string.search_query_invalid)
     }
 
     private fun SearchTypeModel.fillText() {
