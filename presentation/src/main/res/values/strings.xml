@@ -1,5 +1,18 @@
 <resources>
     <!-- App -->
     <string name="app_name">StarWarsApp</string>
+    <string name="app_name_visual">Star Wars\nApp</string>
+
+    <!-- Filters -->
+    <string name="planets">Planets</string>
+    <string name="species">Species</string>
+    <string name="characters">Characters</string>
+    <string name="episodes">Episodes</string>
+    <string name="search_for">Search for %s…</string>
+    <string name="search_query_invalid">Invalid value, search can not be null.</string>
+
+    <!-- Content descriptions -->
+    <string name="film_details_content_description">Film details</string>
+    <string name="filter_content_description">Filter</string>
 
 </resources>

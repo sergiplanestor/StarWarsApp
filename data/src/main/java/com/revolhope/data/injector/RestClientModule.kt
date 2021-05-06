@@ -1,9 +1,9 @@
-package com.revolhope.data.injection
+package com.revolhope.data.injector
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.revolhope.data.BuildConfig
-import com.revolhope.data.feature.film.datasource.StarWarsApi
+import com.revolhope.data.common.api.StarWarsApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,10 +22,12 @@ object RestClientModule {
     @Provides
     @Singleton
     @Named("Base Client")
-    fun providesOkhttpClient() : OkHttpClient.Builder =
+    fun providesOkhttpClient(): OkHttpClient.Builder =
         OkHttpClient.Builder().apply {
             if (BuildConfig.DEBUG) {
-                addInterceptor(HttpLoggingInterceptor())
+                addInterceptor(HttpLoggingInterceptor().apply {
+                    level = HttpLoggingInterceptor.Level.BODY
+                })
             }
         }
 
