@@ -4,12 +4,14 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.inputmethod.EditorInfo
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.doOnPreDraw
 import androidx.core.view.isVisible
-import com.revolhope.domain.feature.searchtype.model.SearchTypeModel
+import com.revolhope.domain.feature.search.model.SearchTypeModel
 import com.revolhope.mylibra.R
 import com.revolhope.mylibra.databinding.ComponentSearchViewBinding
 import com.revolhope.presentation.library.components.selector.SelectorUIModel
 import com.revolhope.presentation.library.components.selector.adapter.pill.SelectorPillUIModel
+import com.revolhope.presentation.library.extensions.errorLayout
 import com.revolhope.presentation.library.extensions.input
 import com.revolhope.presentation.library.extensions.layoutInflater
 import com.revolhope.presentation.library.extensions.lowerCase
@@ -50,11 +52,14 @@ class SearchView @JvmOverloads constructor(
     private val isFieldValid: Boolean
         get() = inputText.isBlank().not().also(::changeInputErrorState)
 
+    private val errorLayoutHeight: Int
+        get() = binding.searchInputLayout.errorLayout?.height ?: 0
 
     init {
         bindSelector()
         bindEditText()
         setupListeners()
+        adjustFilterBottomMargin()
     }
 
     private fun bindSelector() {
@@ -104,6 +109,14 @@ class SearchView @JvmOverloads constructor(
     private fun changeInputErrorState(isValid: Boolean) {
         binding.searchInputLayout.error =
             if (isValid) null else context.getString(R.string.search_query_invalid)
+    }
+
+    private fun adjustFilterBottomMargin() {
+        doOnPreDraw {
+            binding.filtersButton.layoutParams = (binding.filtersButton.layoutParams as? LayoutParams)?.apply {
+                bottomMargin = errorLayoutHeight
+            }
+        }
     }
 
     private fun SearchTypeModel.fillText() {

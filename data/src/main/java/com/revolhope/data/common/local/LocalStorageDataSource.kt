@@ -1,8 +1,8 @@
 package com.revolhope.data.common.local
 
 import android.content.SharedPreferences
-import com.revolhope.data.feature.searchtype.datasource.SearchTypeDataSource
-import com.revolhope.data.feature.searchtype.response.SearchTypeResponse
+import com.revolhope.data.feature.search.datasource.SearchTypeDataSource
+import com.revolhope.data.feature.search.response.SearchTypeResponse
 import javax.inject.Inject
 
 class LocalStorageDataSource @Inject constructor(private val preferences: SharedPreferences) :

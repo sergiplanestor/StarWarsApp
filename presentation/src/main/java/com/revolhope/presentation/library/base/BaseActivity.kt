@@ -6,6 +6,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.revolhope.mylibra.R
+import com.revolhope.presentation.library.components.snackbar.SnackBar
+import com.revolhope.presentation.library.components.snackbar.model.SnackBarModel
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -102,5 +104,18 @@ abstract class BaseActivity : AppCompatActivity() {
     private fun overrideTransition() {
         val anim = getNavAnimations(intent, isStart = false)
         overridePendingTransition(anim.first, anim.second)
+    }
+
+    protected open fun onShowFeedback(message: String?, isPositive: Boolean) {
+        if (isPositive && !message.isNullOrBlank() || !isPositive) {
+            SnackBar.show(
+                view = root,
+                model = if (isPositive) {
+                    SnackBarModel.Success(message!!)
+                } else {
+                    SnackBarModel.Error(message = message ?: getString(R.string.error_default))
+                }
+            )
+        }
     }
 }

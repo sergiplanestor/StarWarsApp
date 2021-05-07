@@ -1,7 +1,7 @@
 package com.revolhope.data.injector
 
 import com.revolhope.data.common.local.LocalStorageDataSource
-import com.revolhope.data.feature.searchtype.datasource.SearchTypeDataSource
+import com.revolhope.data.feature.search.datasource.SearchTypeDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

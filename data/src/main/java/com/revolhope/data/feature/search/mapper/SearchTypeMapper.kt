@@ -1,6 +1,6 @@
-package com.revolhope.data.feature.searchtype.mapper
+package com.revolhope.data.feature.search.mapper
 
-import com.revolhope.data.feature.searchtype.response.SearchTypeResponse
+import com.revolhope.data.feature.search.response.SearchTypeResponse
 import com.revolhope.domain.feature.search.model.SearchTypeModel
 
 object SearchTypeMapper {

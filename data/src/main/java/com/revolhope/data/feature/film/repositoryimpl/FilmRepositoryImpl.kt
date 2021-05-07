@@ -20,6 +20,6 @@ class FilmRepositoryImpl @Inject constructor(
             // with params 'next', 'previous' and 'count'. In this case, have been considered unnecessary
             // so just film model is returned
             networkDataSource.fetchFilms().results?.map(FilmMapper::fromFilmResponseToModel)
-                ?: emptyList()
+                ?.sortedWith(compareBy { it.episodeNum }) ?: emptyList()
         }
 }

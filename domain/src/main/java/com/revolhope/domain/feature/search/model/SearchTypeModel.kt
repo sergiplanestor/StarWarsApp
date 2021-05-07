@@ -1,4 +1,4 @@
-package com.revolhope.domain.feature.searchtype.model
+package com.revolhope.domain.feature.search.model
 
 sealed class SearchTypeModel(
     open val id: Int,

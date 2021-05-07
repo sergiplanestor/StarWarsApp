@@ -3,11 +3,11 @@ package com.revolhope.presentation.feature.dashboard
 import android.app.Activity
 import android.content.Intent
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.os.bundleOf
 import com.revolhope.domain.feature.film.model.FilmModel
-import com.revolhope.domain.feature.searchtype.model.SearchTypeModel
+import com.revolhope.domain.feature.search.model.SearchTypeModel
+import com.revolhope.mylibra.R
 import com.revolhope.mylibra.databinding.ActivityDashboardBinding
 import com.revolhope.presentation.feature.dashboard.adapter.FilmAdapter
 import com.revolhope.presentation.library.base.BaseActivity
@@ -79,6 +79,24 @@ class DashboardActivity : BaseActivity() {
     }
 
     private fun onQuerySubmit(type: SearchTypeModel, text: String) {
-        Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+        (type !is SearchTypeModel.Unknown).run {
+            onShowFeedback(
+                message = getString(if (this) R.string.processing_query else R.string.error_default),
+                isPositive = this
+            )
+        }
+        when (type) {
+            // Filter current list
+            is SearchTypeModel.Episode -> viewModel.applyFilmFilter(text)
+            // Show results on a modal screen
+            is SearchTypeModel.Characters,
+            is SearchTypeModel.Planets,
+            is SearchTypeModel.Species -> {
+
+            }
+            // Unrecognized type, should never happen
+            SearchTypeModel.Unknown -> { /* Nothing to do here */
+            }
+        }
     }
 }
