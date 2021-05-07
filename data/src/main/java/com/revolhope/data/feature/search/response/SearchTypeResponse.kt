@@ -1,4 +1,4 @@
-package com.revolhope.data.feature.searchtype.response
+package com.revolhope.data.feature.search.response
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,6 +1,6 @@
-package com.revolhope.data.feature.searchtype.datasource
+package com.revolhope.data.feature.search.datasource
 
-import com.revolhope.data.feature.searchtype.response.SearchTypeResponse
+import com.revolhope.data.feature.search.response.SearchTypeResponse
 
 
 interface SearchTypeDataSource {

@@ -17,8 +17,6 @@ class SelectorPillView @JvmOverloads constructor(
     private val binding = ComponentSelectorPillViewBinding.inflate(context.layoutInflater, this, true)
     private lateinit var model: SelectorPillUIModel
 
-    val isPillSelected: Boolean get() = ::model.isInitialized && model.isSelected
-
     fun bind(model: SelectorPillUIModel) {
         this.model = model
         binding.pillTextView.text = this.model.text

@@ -1,9 +1,9 @@
 package com.revolhope.data.injector
 
 import com.revolhope.data.feature.film.repositoryimpl.FilmRepositoryImpl
-import com.revolhope.data.feature.searchtype.repositoryimpl.SearchTypeRepositoryImpl
+import com.revolhope.data.feature.search.repositoryimpl.SearchRepositoryImpl
 import com.revolhope.domain.feature.film.repository.FilmRepository
-import com.revolhope.domain.feature.searchtype.repository.SearchTypeRepository
+import com.revolhope.domain.feature.search.repository.SearchRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -20,6 +20,6 @@ abstract class RepositoryModule {
 
     @Binds
     abstract fun bindSearchTypeRepository(
-        searchTypeRepositoryImpl: SearchTypeRepositoryImpl
-    ): SearchTypeRepository
+        searchTypeRepositoryImpl: SearchRepositoryImpl
+    ): SearchRepository
 }

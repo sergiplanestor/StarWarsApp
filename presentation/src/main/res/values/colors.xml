@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!-- Colors -->
+    <!-- Black & White -->
+    <color name="black">#FF000000</color>
+    <color name="black_opacity_70">#B3000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_opacity_70">#B3FFFFFF</color>
+    <!-- Blue gray -->
     <color name="blue_gray_200">#B0BEC5</color>
     <color name="blue_gray_500">#607D8B</color>
     <color name="blue_gray_light">#8EACBB</color>
     <color name="blue_gray_dark">#34515E</color>
-
+    <!-- Red -->
     <color name="red_900">#B71C1C</color>
     <color name="red_light">#F05545</color>
     <color name="red_light_opacity_70">#B3F05545</color>
@@ -14,32 +19,43 @@
     <color name="red_dark_opacity_70">#B37F0000</color>
     <color name="red_error_200">#EF9A9A</color>
     <color name="red_error_600">#E53935</color>
-
-    <color name="gray_800">#424242</color>
+    <!-- Gray -->
+    <color name="gray_300">#E0E0E0</color>
     <color name="gray_700">#616161</color>
+    <color name="gray_800">#424242</color>
     <color name="gray_900">#212121</color>
-
-    <color name="black">#FF000000</color>
-    <color name="black_opacity_70">#B3000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="white_opacity_70">#B3FFFFFF</color>
-
-    <color name="yellow">#FDD835</color>
+    <!-- Orange -->
+    <color name="orange_100">#FFE0B2</color>
+    <!-- Amber -->
+    <color name="amber_200">#FFE082</color>
+    <color name="amber_300">#FFD54F</color>
+    <color name="amber_600">#FFB300</color>
+    <color name="amber_700">#FFA000</color>
+    <!-- Light green -->
+    <color name="light_green_300">#AED581</color>
+    <color name="light_green_500">#8BC34A</color>
 
     <!-- Default theme colors -->
     <!-- Primary -->
-    <color name="primaryColor">@color/blue_gray_500</color>
-    <color name="primaryLightColor">@color/blue_gray_light</color>
-    <color name="primaryDarkColor">@color/blue_gray_dark</color>
+    <color name="primaryColor">@color/gray_800</color>
+    <color name="primaryLightColor">@color/gray_700</color>
+    <color name="primaryDarkColor">@color/gray_900</color>
     <!-- Secondary -->
-    <color name="secondaryColor">@color/red_900</color>
-    <color name="secondaryLightColor">@color/red_light</color>
-    <color name="secondaryDarkColor">@color/red_dark</color>
+    <color name="secondaryColor">@color/amber_300</color>
+    <color name="secondaryLightColor">@color/amber_200</color>
+    <color name="secondaryDarkColor">@color/amber_700</color>
     <!-- Text color -->
     <color name="primaryTextColor">@color/black</color>
     <color name="primaryTextColorOpacity70">@color/black_opacity_70</color>
     <color name="primaryTextColorAccent">@color/secondaryDarkColor</color>
     <color name="primaryTextColorAccentOpacity70">@color/red_dark_opacity_70</color>
     <color name="secondaryTextColor">@color/white</color>
+    <!-- Success -->
+    <color name="success">@color/light_green_500</color>
+    <!-- Error -->
+    <color name="error">@color/red_error_600</color>
+    <!-- SnackBar background -->
+    <color name="feedback_success_background">@color/orange_100</color>
+    <color name="feedback_error_background">@color/gray_800</color>
 
 </resources>
