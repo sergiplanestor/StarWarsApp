@@ -14,7 +14,7 @@ data class PlanetResponse(
     @SerializedName("population") val population: String?,
     @SerializedName("residents") val residents: List<String>?,
     @SerializedName("films") val films: List<String>?,
-    @SerializedName("created") val createdOn: List<String>?,
+    @SerializedName("created") val createdOn: String?,
     @SerializedName("edited") val editedOn: String?,
     @SerializedName("url") val url: String?
 )
