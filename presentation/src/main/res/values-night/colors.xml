@@ -15,5 +15,11 @@
     <color name="primaryTextColorAccent">@color/secondaryLightColor</color>
     <color name="primaryTextColorAccentOpacity70">@color/red_light_opacity_70</color>
     <color name="secondaryTextColor">@color/blue_gray_200</color>
-
+    <!-- Success -->
+    <color name="success">@color/light_green_300</color>
+    <!-- Error -->
+    <color name="error">@color/red_error_200</color>
+    <!-- SnackBar background -->
+    <color name="feedback_success_background">@color/amber_600</color>
+    <color name="feedback_error_background">@color/gray_300</color>
 </resources>

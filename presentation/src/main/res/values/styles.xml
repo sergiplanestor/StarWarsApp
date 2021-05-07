@@ -92,6 +92,7 @@
     <style name="Input" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="fontFamily">@font/montserrat_regular</item>
         <item name="hintTextAppearance">@style/Text.Subtitle2</item>
+        <item name="errorEnabled">true</item>
         <item name="errorIconDrawable">@null</item>
         <item name="startIconTint">@color/gray_800</item>
         <item name="endIconTint">@color/gray_800</item>
