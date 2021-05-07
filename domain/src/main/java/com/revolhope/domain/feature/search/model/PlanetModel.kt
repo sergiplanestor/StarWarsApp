@@ -1,7 +1,10 @@
 package com.revolhope.domain.feature.search.model
 
+import android.os.Parcelable
 import com.revolhope.domain.common.model.date.DateModel
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class PlanetModel(
     val name: String,
     val rotationPeriod: String,
@@ -17,4 +20,4 @@ data class PlanetModel(
     val createdOn: DateModel,
     val editedOn: DateModel,
     val url: String
-)
+): Parcelable

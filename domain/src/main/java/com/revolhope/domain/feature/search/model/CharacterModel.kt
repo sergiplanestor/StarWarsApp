@@ -1,7 +1,10 @@
 package com.revolhope.domain.feature.search.model
 
+import android.os.Parcelable
 import com.revolhope.domain.common.model.date.DateModel
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class CharacterModel(
     val name: String,
     val height: String,
@@ -18,4 +21,4 @@ data class CharacterModel(
     val createdOn: DateModel,
     val editedOn: DateModel,
     val url: String
-)
+): Parcelable
