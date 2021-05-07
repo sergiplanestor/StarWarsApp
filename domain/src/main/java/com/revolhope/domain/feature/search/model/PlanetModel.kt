@@ -12,8 +12,8 @@ data class PlanetModel(
     val terrain: String,
     val surfaceWaterPercentage: String,
     val population: String,
-    val residentsUrl: List<String>,
-    val filmsUrl: List<String>,
+    val residentsIds: List<Int>,
+    val filmsIds: List<Int>,
     val createdOn: DateModel,
     val editedOn: DateModel,
     val url: String

@@ -12,9 +12,9 @@ data class SpecieModel(
     val hairColor: String,
     val eyeColor: String,
     val language: String,
-    val homeWorld: String,
-    val charactersUrl: List<String>,
-    val filmsUrl: List<String>,
+    val homeWorldId: Int,
+    val charactersIds: List<Int>,
+    val filmsIds: List<Int>,
     val createdOn: DateModel,
     val editedOn: DateModel,
     val url: String

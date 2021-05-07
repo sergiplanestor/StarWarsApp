@@ -1,6 +1,7 @@
 package com.revolhope.data.feature.film.mapper
 
 import com.revolhope.data.common.date.DateMapper
+import com.revolhope.data.common.extensions.lastUrlSegmentAsInt
 import com.revolhope.data.feature.film.response.FilmResponse
 import com.revolhope.domain.common.extensions.SLASH
 import com.revolhope.domain.common.extensions.letOr
@@ -17,11 +18,11 @@ object FilmMapper {
             description = response.crawl.orEmpty(),
             director = response.director.orEmpty(),
             producer = response.producer.orEmpty(),
-            charactersIds = response.characters?.mapNotNull(::lastUrlSegmentAsInt) ?: emptyList(),
-            planetsIds = response.planets?.mapNotNull(::lastUrlSegmentAsInt) ?: emptyList(),
-            speciesIds = response.species?.mapNotNull(::lastUrlSegmentAsInt) ?: emptyList(),
-            starshipsIds = response.starships?.mapNotNull(::lastUrlSegmentAsInt) ?: emptyList(),
-            vehiclesIds = response.vehicles?.mapNotNull(::lastUrlSegmentAsInt) ?: emptyList(),
+            charactersIds = response.characters?.mapNotNull { it.lastUrlSegmentAsInt() } ?: emptyList(),
+            planetsIds = response.planets?.mapNotNull { it.lastUrlSegmentAsInt() } ?: emptyList(),
+            speciesIds = response.species?.mapNotNull { it.lastUrlSegmentAsInt() } ?: emptyList(),
+            starshipsIds = response.starships?.mapNotNull { it.lastUrlSegmentAsInt() } ?: emptyList(),
+            vehiclesIds = response.vehicles?.mapNotNull { it.lastUrlSegmentAsInt() } ?: emptyList(),
             createdOn = response.createdOn.letOr(
                 default = DateModel.empty,
                 block = DateMapper::fromISO8610ToModel
@@ -36,7 +37,4 @@ object FilmMapper {
             ),
             extraInfoUrl = response.url.orEmpty()
         )
-
-    private fun lastUrlSegmentAsInt(url: String?): Int? =
-        url?.split(SLASH).run { this?.get(lastIndex)?.remove(SLASH)?.toIntOrNull() }
 }
