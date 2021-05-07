@@ -5,7 +5,7 @@
 
     <!-- Error -->
     <string name="error_default">Oops… Something went wrong, try again later.</string>
-    <string name="search_query_invalid">Invalid value, search can not be null.</string>
+    <string name="search_query_invalid">Invalid value, search can not be blank.</string>
 
     <!-- Filters -->
     <string name="planets">Planets</string>
