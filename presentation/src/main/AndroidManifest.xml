@@ -18,6 +18,21 @@
         <activity
             android:name="com.revolhope.presentation.feature.dashboard.DashboardActivity"
             android:theme="@style/Theme.StarWarsApp" />
+
+        <activity
+            android:name="com.revolhope.presentation.feature.planets.PlanetsActivity"
+            android:theme="@style/Theme.StarWarsApp"
+            android:label="@string/planets"/>
+
+        <activity
+            android:name="com.revolhope.presentation.feature.characters.CharactersActivity"
+            android:theme="@style/Theme.StarWarsApp"
+            android:label="@string/characters"/>
+
+        <activity
+            android:name="com.revolhope.presentation.feature.species.SpeciesActivity"
+            android:theme="@style/Theme.StarWarsApp"
+            android:label="@string/species"/>
     </application>
 
 </manifest>

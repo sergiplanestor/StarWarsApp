@@ -41,10 +41,15 @@ class SearchRepositoryImpl @Inject constructor(
             }.map(CharacterMapper::fromCharacterResponseToModel)
         }
 
-    override suspend fun fetchCharacterById(id: Int): State<CharacterModel> =
+    override suspend fun fetchCharacterByIds(ids: List<Int>): State<List<CharacterModel>> =
         statefulBlock {
-            searchNetworkDataSource.fetchCharacterById(id)
-                .let(CharacterMapper::fromCharacterResponseToModel)
+            val result = mutableListOf<CharacterModel>()
+            ids.forEach {
+                result.add(searchNetworkDataSource.fetchCharacterById(it)
+                    .let(CharacterMapper::fromCharacterResponseToModel)
+                )
+            }
+            result
         }
 
     override suspend fun fetchPlanetsByName(name: String): State<List<PlanetModel>> =

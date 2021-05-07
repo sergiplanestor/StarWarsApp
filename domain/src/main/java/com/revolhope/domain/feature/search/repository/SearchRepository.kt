@@ -14,7 +14,7 @@ interface SearchRepository {
 
     suspend fun fetchCharactersByName(name: String): State<List<CharacterModel>>
 
-    suspend fun fetchCharacterById(id: Int): State<CharacterModel>
+    suspend fun fetchCharacterByIds(ids: List<Int>): State<List<CharacterModel>>
 
     suspend fun fetchPlanetsByName(name: String): State<List<PlanetModel>>
 

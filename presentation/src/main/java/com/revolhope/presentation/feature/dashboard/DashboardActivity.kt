@@ -6,10 +6,16 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.core.os.bundleOf
 import com.revolhope.domain.feature.film.model.FilmModel
+import com.revolhope.domain.feature.search.model.CharacterModel
+import com.revolhope.domain.feature.search.model.PlanetModel
 import com.revolhope.domain.feature.search.model.SearchTypeModel
+import com.revolhope.domain.feature.search.model.SpecieModel
 import com.revolhope.mylibra.R
 import com.revolhope.mylibra.databinding.ActivityDashboardBinding
+import com.revolhope.presentation.feature.characters.CharactersActivity
 import com.revolhope.presentation.feature.dashboard.adapter.FilmAdapter
+import com.revolhope.presentation.feature.planets.PlanetsActivity
+import com.revolhope.presentation.feature.species.SpeciesActivity
 import com.revolhope.presentation.library.base.BaseActivity
 import com.revolhope.presentation.library.extensions.observe
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,6 +48,10 @@ class DashboardActivity : BaseActivity() {
         super.initObservers()
         observe(viewModel.filmsLiveData, ::onFilmsReceived)
         observe(viewModel.searchTypeLiveData, ::onSearchTypeReceived)
+        observe(viewModel.charactersByNameLiveData, ::onCharactersByNameReceived)
+        observe(viewModel.charactersByIdsLiveData, ::onCharactersByIdsReceived)
+        observe(viewModel.speciesByNameLiveData, ::onSpeciesByNameReceived)
+        observe(viewModel.planetsByNameLiveData, ::onPlanetsByNameReceived)
     }
 
     override fun onLoadData() {
@@ -75,7 +85,23 @@ class DashboardActivity : BaseActivity() {
     }
 
     private fun onFilmClick(film: FilmModel) {
+        viewModel.fetchCharactersByIds(film.charactersIds)
+    }
 
+    private fun onCharactersByIdsReceived(characters: List<CharacterModel>) {
+        CharactersActivity.start(activity = this, characters = characters, isModal = false)
+    }
+    
+    private fun onCharactersByNameReceived(characters: List<CharacterModel>) {
+        CharactersActivity.start(activity = this, characters = characters, isModal = true)
+    }
+
+    private fun onSpeciesByNameReceived(species: List<SpecieModel>) {
+        SpeciesActivity.start(activity = this, species = species)
+    }
+
+    private fun onPlanetsByNameReceived(planets: List<PlanetModel>) {
+        PlanetsActivity.start(activity = this, planets = planets)
     }
 
     private fun onQuerySubmit(type: SearchTypeModel, text: String) {
@@ -89,10 +115,14 @@ class DashboardActivity : BaseActivity() {
             // Filter current list
             is SearchTypeModel.Episode -> viewModel.applyFilmFilter(text)
             // Show results on a modal screen
-            is SearchTypeModel.Characters,
-            is SearchTypeModel.Planets,
+            is SearchTypeModel.Characters -> {
+                viewModel.fetchCharactersByName(text)
+            }
+            is SearchTypeModel.Planets -> {
+                viewModel.fetchPlanetsByName(text)
+            }
             is SearchTypeModel.Species -> {
-
+                viewModel.fetchSpeciesByName(text)
             }
             // Unrecognized type, should never happen
             SearchTypeModel.Unknown -> { /* Nothing to do here */
