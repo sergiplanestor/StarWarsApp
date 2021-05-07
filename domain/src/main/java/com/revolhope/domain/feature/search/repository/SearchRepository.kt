@@ -1,7 +1,7 @@
-package com.revolhope.domain.feature.searchtype.repository
+package com.revolhope.domain.feature.search.repository
 
 import com.revolhope.domain.common.model.net.State
-import com.revolhope.domain.feature.searchtype.model.SearchTypeModel
+import com.revolhope.domain.feature.search.model.SearchTypeModel
 
 interface SearchTypeRepository {
 

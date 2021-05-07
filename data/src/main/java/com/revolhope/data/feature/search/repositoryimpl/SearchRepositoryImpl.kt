@@ -4,13 +4,13 @@ import com.revolhope.data.common.base.BaseRepositoryImpl
 import com.revolhope.data.common.local.LocalStorageDataSource
 import com.revolhope.data.feature.searchtype.mapper.SearchTypeMapper
 import com.revolhope.domain.common.model.net.State
-import com.revolhope.domain.feature.searchtype.model.SearchTypeModel
-import com.revolhope.domain.feature.searchtype.repository.SearchTypeRepository
+import com.revolhope.domain.feature.search.model.SearchTypeModel
+import com.revolhope.domain.feature.search.repository.SearchRepository
 import javax.inject.Inject
 
-class SearchTypeRepositoryImpl @Inject constructor(
+class SearchRepositoryImpl @Inject constructor(
     private val dataSource: LocalStorageDataSource
-) : BaseRepositoryImpl(), SearchTypeRepository {
+) : BaseRepositoryImpl(), SearchRepository {
 
     override suspend fun fetchSearchType(): State<SearchTypeModel?> =
         statefulBlock {
