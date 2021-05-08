@@ -5,6 +5,9 @@ import com.revolhope.data.feature.search.datasource.SearchTypeDataSource
 import com.revolhope.data.feature.search.response.SearchTypeResponse
 import javax.inject.Inject
 
+/**
+ * Shared preferences data source. It implements [SearchTypeDataSource] interface.
+ */
 class LocalStorageDataSource @Inject constructor(private val preferences: SharedPreferences) :
     SearchTypeDataSource {
 

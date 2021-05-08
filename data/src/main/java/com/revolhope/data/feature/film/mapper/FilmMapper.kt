@@ -9,6 +9,9 @@ import com.revolhope.domain.common.extensions.remove
 import com.revolhope.domain.common.model.date.DateModel
 import com.revolhope.domain.feature.film.model.FilmModel
 
+/**
+ * Mapper to parse from [FilmResponse] to [FilmModel]
+ */
 object FilmMapper {
 
     fun fromFilmResponseToModel(response: FilmResponse): FilmModel =

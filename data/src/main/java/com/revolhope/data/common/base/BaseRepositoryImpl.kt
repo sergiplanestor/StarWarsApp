@@ -3,6 +3,10 @@ package com.revolhope.data.common.base
 import com.revolhope.domain.common.model.net.State
 import java.lang.Exception
 
+/**
+ * Base class for repositoryImpl. In it error management can be implemented, in this case just exception
+ * control has been included.
+ */
 abstract class BaseRepositoryImpl {
 
     protected suspend inline fun <T> statefulBlock(crossinline block: suspend () -> T): State<T> =

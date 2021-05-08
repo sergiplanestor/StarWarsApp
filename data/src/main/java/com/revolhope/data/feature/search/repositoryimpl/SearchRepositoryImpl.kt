@@ -19,6 +19,10 @@ import com.revolhope.domain.feature.search.model.SpecieModel
 import com.revolhope.domain.feature.search.repository.SearchRepository
 import javax.inject.Inject
 
+/**
+ * Film repository implementation. It extends from [BaseRepositoryImpl] and implements [SearchRepository]
+ * interface. Its purpose is to have the logic to decide where the different searched data needs to come from.
+ */
 class SearchRepositoryImpl @Inject constructor(
     private val typeDataSource: SearchTypeDataSource,
     private val searchNetworkDataSource: SearchNetworkDataSource

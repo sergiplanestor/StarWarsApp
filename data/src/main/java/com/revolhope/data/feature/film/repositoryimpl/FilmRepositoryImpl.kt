@@ -9,6 +9,10 @@ import com.revolhope.domain.feature.film.model.FilmModel
 import com.revolhope.domain.feature.film.repository.FilmRepository
 import javax.inject.Inject
 
+/**
+ * Film repository implementation. It extends from [BaseRepositoryImpl] and implements [FilmRepository]
+ * interface. Its purpose is to have the logic to decide where the film data needs to come from.
+ */
 class FilmRepositoryImpl @Inject constructor(
     private val networkDataSource: FilmNetworkDataSource
 ) : BaseRepositoryImpl(), FilmRepository {

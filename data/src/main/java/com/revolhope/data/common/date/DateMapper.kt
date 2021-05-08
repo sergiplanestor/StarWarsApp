@@ -8,6 +8,9 @@ import java.text.ParsePosition
 import java.text.SimpleDateFormat
 import java.util.Locale
 
+/**
+ * Mapper to parse from String to DateModel
+ */
 object DateMapper {
 
     // Private const

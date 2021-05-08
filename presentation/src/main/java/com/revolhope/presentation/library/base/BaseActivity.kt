@@ -11,6 +11,9 @@ import com.revolhope.presentation.library.components.loader.LoaderView
 import com.revolhope.presentation.library.components.snackbar.SnackBar
 import com.revolhope.presentation.library.components.snackbar.model.SnackBarModel
 
+/**
+ * Base activity that contains common logic for all app activities.
+ */
 abstract class BaseActivity : AppCompatActivity() {
 
     protected enum class NavTransition {

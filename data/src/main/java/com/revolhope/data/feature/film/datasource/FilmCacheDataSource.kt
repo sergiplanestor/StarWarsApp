@@ -2,6 +2,9 @@ package com.revolhope.data.feature.film.datasource
 
 import com.revolhope.data.feature.film.response.FilmResponse
 
+/**
+ * Cache data source for [FilmResponse].
+ */
 object FilmCacheDataSource {
 
     // Private attributes
