@@ -46,6 +46,9 @@ class DashboardActivity : BaseActivity() {
 
     override fun initObservers() {
         super.initObservers()
+        observe(viewModel.errorLiveData) { onShowFeedback(it, isPositive = false) }
+        observe(viewModel.errorResLiveData) { onShowFeedback(getString(it), isPositive = false) }
+        observe(viewModel.loaderLiveData, ::onShowLoader)
         observe(viewModel.filmsLiveData, ::onFilmsReceived)
         observe(viewModel.searchTypeLiveData, ::onSearchTypeReceived)
         observe(viewModel.charactersByNameLiveData, ::onCharactersByNameReceived)

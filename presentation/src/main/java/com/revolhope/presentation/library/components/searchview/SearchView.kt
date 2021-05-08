@@ -12,6 +12,7 @@ import com.revolhope.mylibra.databinding.ComponentSearchViewBinding
 import com.revolhope.presentation.library.components.selector.SelectorUIModel
 import com.revolhope.presentation.library.components.selector.adapter.pill.SelectorPillUIModel
 import com.revolhope.presentation.library.extensions.errorLayout
+import com.revolhope.presentation.library.extensions.hideKeyboard
 import com.revolhope.presentation.library.extensions.input
 import com.revolhope.presentation.library.extensions.layoutInflater
 import com.revolhope.presentation.library.extensions.lowerCase
@@ -50,7 +51,8 @@ class SearchView @JvmOverloads constructor(
             binding.searchEditText.setText(value)
         }
     private val isFieldValid: Boolean
-        get() = inputText.isBlank().not().also(::changeInputErrorState)
+        get() =
+            (inputText.isBlank().not() || searchType is SearchTypeModel.Episode).also(::changeInputErrorState)
 
     private val errorLayoutHeight: Int
         get() = binding.searchInputLayout.errorLayout?.height ?: 0
@@ -80,13 +82,11 @@ class SearchView @JvmOverloads constructor(
 
     private fun setupListeners() {
         // End icon action
-        binding.searchInputLayout.setEndIconOnClickListener {
-            if (isFieldValid) onQuerySummit?.invoke(searchType, inputText)
-        }
+        binding.searchInputLayout.setEndIconOnClickListener { onQuerySubmit() }
         // Edit Text IME action
         binding.searchEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                if (isFieldValid) onQuerySummit?.invoke(searchType, inputText)
+                onQuerySubmit()
                 true
             } else {
                 false
@@ -96,6 +96,13 @@ class SearchView @JvmOverloads constructor(
         binding.filtersButton.setOnClickListener {
             isFilterLayoutVisible = isFilterLayoutVisible.not()
             binding.filterSelectorView.isVisible = isFilterLayoutVisible
+        }
+    }
+
+    private fun onQuerySubmit() {
+        if (isFieldValid) {
+            context.hideKeyboard(binding.searchEditText)
+            onQuerySummit?.invoke(searchType, inputText)
         }
     }
 
@@ -113,9 +120,10 @@ class SearchView @JvmOverloads constructor(
 
     private fun adjustFilterBottomMargin() {
         doOnPreDraw {
-            binding.filtersButton.layoutParams = (binding.filtersButton.layoutParams as? LayoutParams)?.apply {
-                bottomMargin = errorLayoutHeight
-            }
+            binding.filtersButton.layoutParams =
+                (binding.filtersButton.layoutParams as? LayoutParams)?.apply {
+                    bottomMargin = errorLayoutHeight
+                }
         }
     }
 

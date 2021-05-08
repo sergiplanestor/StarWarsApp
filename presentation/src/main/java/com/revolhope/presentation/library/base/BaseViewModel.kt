@@ -15,6 +15,9 @@ abstract class BaseViewModel : ViewModel(), CoroutineScope {
 
     private val job = Job()
 
+    protected val _loaderLiveData = MutableLiveData<Boolean>()
+    val loaderLiveData: LiveData<Boolean> get() = _loaderLiveData
+
     protected val _errorLiveData = MutableLiveData<String>()
     val errorLiveData: LiveData<String> get() = _errorLiveData
 
@@ -36,8 +39,10 @@ abstract class BaseViewModel : ViewModel(), CoroutineScope {
         onError: ((message: String?) -> Unit)? = null
     ) = launch {
         withContext(dispatcher) {
+            _loaderLiveData.postValue(true)
             asyncTask.invoke()
         }.also { state ->
+            _loaderLiveData.value = false
             when (state) {
                 is State.Success -> onSuccess.invoke(state.data)
                 is State.Error -> {
