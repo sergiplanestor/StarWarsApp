@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.view.MenuItem
 import android.view.View
+import androidx.activity.viewModels
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.revolhope.domain.feature.search.model.PlanetModel
@@ -11,7 +12,9 @@ import com.revolhope.mylibra.R
 import com.revolhope.mylibra.databinding.ActivityPlanetsBinding
 import com.revolhope.presentation.feature.planets.adapter.PlanetsAdapter
 import com.revolhope.presentation.library.base.BaseActivity
+import com.revolhope.presentation.library.extensions.observe
 import com.revolhope.presentation.library.extensions.toArrayList
+import dagger.hilt.android.AndroidEntryPoint
 
 class PlanetsActivity : BaseActivity() {
 
@@ -41,10 +44,13 @@ class PlanetsActivity : BaseActivity() {
 
     override fun bindViews() {
         super.bindViews()
+        setupToolbar()
+        binding.planetsRecyclerView.adapter = PlanetsAdapter(planets.toMutableList())
+    }
+
+    private fun setupToolbar() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close)
-        binding.planetsRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.planetsRecyclerView.adapter = PlanetsAdapter(planets.toMutableList())
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean =
@@ -54,5 +60,4 @@ class PlanetsActivity : BaseActivity() {
         } else {
             super.onOptionsItemSelected(item)
         }
-
 }

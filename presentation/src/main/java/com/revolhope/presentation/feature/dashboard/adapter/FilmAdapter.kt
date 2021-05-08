@@ -10,6 +10,8 @@ class FilmAdapter(
     private val onItemClick: (item: FilmModel) -> Unit
 ) : DiffUtilAdapter<FilmModel, FilmView>(items) {
 
+    var isClickEnabled = true
+
     override fun onCreateItemView(parent: ViewGroup, viewType: Int): FilmView =
         FilmView(parent.context).apply {
             layoutParams = RecyclerView.LayoutParams(
@@ -21,7 +23,7 @@ class FilmAdapter(
     override fun onBindView(view: FilmView, position: Int) {
         with(items[position]) {
             view.bind(model = this)
-            view.setOnClickListener { onItemClick.invoke(this) }
+            view.setOnClickListener { if (isClickEnabled) onItemClick.invoke(this) }
         }
     }
 

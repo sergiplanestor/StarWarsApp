@@ -2,6 +2,7 @@ package com.revolhope.domain.common.extensions
 
 const val EMPTY_STRING = ""
 const val SLASH = "/"
+const val UNKNOWN = "unknown"
 
 inline fun <T, R> T?.letOr(default: R, crossinline block: (T) -> R): R =
     this?.let { block.invoke(this) } ?: default

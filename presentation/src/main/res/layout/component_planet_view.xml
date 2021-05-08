@@ -10,10 +10,10 @@
         style="@style/Card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -21,45 +21,104 @@
             android:layout_margin="@dimen/margin_medium">
 
             <TextView
-                android:id="@+id/episode_id_text_view"
-                style="@style/Text.Body1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="Episode 1" />
-
-            <TextView
-                android:id="@+id/title_text_view"
+                android:id="@+id/name_text_view"
                 style="@style/Text.Headline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/episode_id_text_view"
-                app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="@dimen/margin_small"
-                tools:text="A New Hope" />
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Tatooine" />
 
             <TextView
-                android:id="@+id/director_text_view"
+                android:id="@+id/diameter_text_view"
                 style="@style/Text.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/title_text_view"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="@dimen/margin_small"
-                tools:text="George Lucas" />
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name_text_view"
+                tools:text="Diameter: 10465 Km" />
 
-            <ImageView
-                android:id="@+id/arrow_icon"
-                style="@style/Icon.Small"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+            <TextView
+                android:id="@+id/orbital_period_text_view"
+                style="@style/Text.Subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/diameter_text_view"
+                tools:text="Orbital period: 304 days" />
+
+            <TextView
+                android:id="@+id/rotation_period_text_view"
+                style="@style/Text.Subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/orbital_period_text_view"
+                tools:text="Rotation period: 23 hours" />
+
+            <TextView
+                android:id="@+id/characteristics"
+                style="@style/Text.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_standard"
+                android:text="@string/characteristics"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/separator" />
+
+            <TextView
+                android:id="@+id/population_text_view"
+                style="@style/Text.Subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/characteristics"
+                tools:text="Population: 120000" />
+
+            <TextView
+                android:id="@+id/terrain_text_view"
+                style="@style/Text.Subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/population_text_view"
+                tools:text="Terrain: Dessert" />
+
+            <TextView
+                android:id="@+id/climate_text_view"
+                style="@style/Text.Subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/terrain_text_view"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/ic_chevron_right"
-                android:layout_marginEnd="@dimen/margin_medium"
-                tools:tint="@color/primaryTextColor"
-                android:contentDescription="@string/film_details_content_description"/>
+                tools:text="Climate: Arid" />
+
+            <View
+                android:id="@+id/separator"
+                style="@style/Separator"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/margin_standard"
+                android:background="@color/primaryTextColorAccentOpacity70"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rotation_period_text_view" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

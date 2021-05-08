@@ -15,6 +15,7 @@ data class CharacterModel(
     val birthYear: String,
     val gender: String,
     val homeWorldId: Int,
+    var homeWorld: String? = null,
     val speciesIds: List<Int>,
     val vehiclesIds: List<Int>,
     val starshipsIds: List<Int>,

@@ -16,6 +16,7 @@ data class SpecieModel(
     val eyeColor: String,
     val language: String,
     val homeWorldId: Int,
+    var homeWorld: String? = null,
     val charactersIds: List<Int>,
     val filmsIds: List<Int>,
     val createdOn: DateModel,

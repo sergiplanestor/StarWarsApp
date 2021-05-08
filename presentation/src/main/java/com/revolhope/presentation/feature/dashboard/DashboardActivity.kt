@@ -46,8 +46,14 @@ class DashboardActivity : BaseActivity() {
 
     override fun initObservers() {
         super.initObservers()
-        observe(viewModel.errorLiveData) { onShowFeedback(it, isPositive = false) }
-        observe(viewModel.errorResLiveData) { onShowFeedback(getString(it), isPositive = false) }
+        observe(viewModel.errorLiveData) {
+            if (::adapter.isInitialized) adapter.isClickEnabled = true
+            onShowFeedback(it, isPositive = false)
+        }
+        observe(viewModel.errorResLiveData) {
+            if (::adapter.isInitialized) adapter.isClickEnabled = true
+            onShowFeedback(getString(it), isPositive = false)
+        }
         observe(viewModel.loaderLiveData, ::onShowLoader)
         observe(viewModel.filmsLiveData, ::onFilmsReceived)
         observe(viewModel.searchTypeLiveData, ::onSearchTypeReceived)
@@ -88,10 +94,12 @@ class DashboardActivity : BaseActivity() {
     }
 
     private fun onFilmClick(film: FilmModel) {
+        adapter.isClickEnabled = false
         viewModel.fetchCharactersByIds(film.charactersIds)
     }
 
     private fun onCharactersByIdsReceived(characters: List<CharacterModel>) {
+        adapter.isClickEnabled = true
         CharactersActivity.start(activity = this, characters = characters, isModal = false)
     }
     

@@ -4,15 +4,18 @@ import android.app.Activity
 import android.content.Intent
 import android.view.MenuItem
 import android.view.View
+import androidx.activity.viewModels
 import androidx.core.os.bundleOf
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.revolhope.domain.feature.search.model.CharacterModel
 import com.revolhope.mylibra.R
 import com.revolhope.mylibra.databinding.ActivityCharactersBinding
 import com.revolhope.presentation.feature.characters.adapter.CharactersAdapter
 import com.revolhope.presentation.library.base.BaseActivity
+import com.revolhope.presentation.library.extensions.observe
 import com.revolhope.presentation.library.extensions.toArrayList
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CharactersActivity : BaseActivity() {
 
     companion object {
@@ -39,6 +42,8 @@ class CharactersActivity : BaseActivity() {
         intent.extras?.getBoolean(EXTRA_IS_MODAL) ?: false
     }
 
+    private val viewModel: CharactersViewModel by viewModels()
+    private lateinit var adapter: CharactersAdapter
     private lateinit var binding: ActivityCharactersBinding
 
     override fun inflateView(): View =
@@ -47,12 +52,20 @@ class CharactersActivity : BaseActivity() {
     override fun bindViews() {
         super.bindViews()
         setupToolbar()
-        binding.charactersRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.charactersRecyclerView.adapter = CharactersAdapter(characters.toMutableList())
+        binding.charactersRecyclerView.adapter =
+            CharactersAdapter(characters.toMutableList()).also { adapter = it }
     }
 
     override fun initObservers() {
         super.initObservers()
+        observe(viewModel.errorLiveData) { onShowFeedback(it, isPositive = false) }
+        observe(viewModel.errorResLiveData) { onShowFeedback(getString(it), isPositive = false) }
+        observe(viewModel.homeWorldsLiveData, ::onHomeWorldsReceived)
+    }
+
+    override fun onLoadData() {
+        super.onLoadData()
+        viewModel.fetchHomeWorlds(characters.map { it.homeWorldId })
     }
 
     private fun setupToolbar() {
@@ -67,4 +80,15 @@ class CharactersActivity : BaseActivity() {
         } else {
             super.onOptionsItemSelected(item)
         }
+
+    private fun onHomeWorldsReceived(homeWorlds: List<String>) {
+        if (::adapter.isInitialized) {
+            adapter.apply {
+                items.forEachIndexed { index, item ->
+                    item.homeWorld = homeWorlds.getOrNull(index)
+                }
+                notifyDataSetChanged()
+            }
+        }
+    }
 }

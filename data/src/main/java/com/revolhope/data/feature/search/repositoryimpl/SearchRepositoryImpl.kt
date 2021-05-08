@@ -59,9 +59,15 @@ class SearchRepositoryImpl @Inject constructor(
             }.map(PlanetMapper::fromPlanetResponseToModel)
         }
 
-    override suspend fun fetchPlanetById(id: Int): State<PlanetModel> =
+    override suspend fun fetchPlanetsByIds(ids: List<Int>): State<List<PlanetModel>> =
         statefulBlock {
-            searchNetworkDataSource.fetchPlanetById(id).let(PlanetMapper::fromPlanetResponseToModel)
+            val result = mutableListOf<PlanetModel>()
+            ids.forEach {
+                result.add(searchNetworkDataSource.fetchPlanetById(it)
+                    .let(PlanetMapper::fromPlanetResponseToModel)
+                )
+            }
+            result
         }
 
     override suspend fun fetchSpeciesByName(name: String): State<List<SpecieModel>> =

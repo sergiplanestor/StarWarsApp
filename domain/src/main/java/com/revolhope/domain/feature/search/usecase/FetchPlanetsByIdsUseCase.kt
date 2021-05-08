@@ -5,11 +5,11 @@ import com.revolhope.domain.feature.search.model.PlanetModel
 import com.revolhope.domain.feature.search.repository.SearchRepository
 import javax.inject.Inject
 
-class FetchPlanetByIdUseCase @Inject constructor(
+class FetchPlanetsByIdsUseCase @Inject constructor(
     private val searchRepository: SearchRepository
 ) {
-    suspend operator fun invoke(params: Params): State<PlanetModel> =
-        searchRepository.fetchPlanetById(params.id)
+    suspend operator fun invoke(params: Params): State<List<PlanetModel>> =
+        searchRepository.fetchPlanetsByIds(params.ids)
 
-    data class Params(val id: Int)
+    data class Params(val ids: List<Int>)
 }
