@@ -5,7 +5,7 @@
 
     <!-- Error -->
     <string name="error_default">Oops… Something went wrong, try again later.</string>
-    <string name="search_query_invalid">Invalid value, search can not be null.</string>
+    <string name="search_query_invalid">Invalid value, search can not be blank.</string>
 
     <!-- Filters -->
     <string name="planets">Planets</string>
@@ -15,6 +15,29 @@
     <string name="search_for">Search for %s…</string>
     <string name="processing_query">Processing query…</string>
 
+    <!-- Character view -->
+    <string name="birth_year">Birth year: %s</string>
+    <string name="home_world">Home world: %s</string>
+    <string name="gender">Gender: %s</string>
+    <string name="height">Height: %s</string>
+    <string name="mass">Mass: %s</string>
+    <string name="physical_characteristics">Physical characteristics</string>
+
+    <!-- Specie view -->
+    <string name="classification">Classification: %s</string>
+    <string name="designation">Designation: %s</string>
+    <string name="language">Language: %s</string>
+    <string name="average_height">Average height: %s</string>
+    <string name="average_life_span">Average life span: %s</string>
+
+    <!-- Planet view -->
+    <string name="characteristics">Characteristics</string>
+    <string name="diameter">Diameter: %s</string>
+    <string name="orbital_period">Orbital period: %s</string>
+    <string name="rotation_period">Rotation period: %s</string>
+    <string name="population">Population: %s</string>
+    <string name="terrain">Terrain: %s</string>
+    <string name="climate">Climate: %s</string>
 
     <!-- Content descriptions -->
     <string name="film_details_content_description">Film details</string>

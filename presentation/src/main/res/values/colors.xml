@@ -31,6 +31,7 @@
     <color name="amber_300">#FFD54F</color>
     <color name="amber_600">#FFB300</color>
     <color name="amber_700">#FFA000</color>
+    <color name="amber_700_opacity_70">#B3FFA000</color>
     <!-- Light green -->
     <color name="light_green_300">#AED581</color>
     <color name="light_green_500">#8BC34A</color>
@@ -48,7 +49,7 @@
     <color name="primaryTextColor">@color/black</color>
     <color name="primaryTextColorOpacity70">@color/black_opacity_70</color>
     <color name="primaryTextColorAccent">@color/secondaryDarkColor</color>
-    <color name="primaryTextColorAccentOpacity70">@color/red_dark_opacity_70</color>
+    <color name="primaryTextColorAccentOpacity70">@color/amber_700_opacity_70</color>
     <color name="secondaryTextColor">@color/white</color>
     <!-- Success -->
     <color name="success">@color/light_green_500</color>

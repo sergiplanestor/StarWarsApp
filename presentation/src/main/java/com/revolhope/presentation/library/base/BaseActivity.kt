@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.viewbinding.ViewBinding
 import com.revolhope.mylibra.R
+import com.revolhope.presentation.library.components.loader.LoaderView
 import com.revolhope.presentation.library.components.snackbar.SnackBar
 import com.revolhope.presentation.library.components.snackbar.model.SnackBarModel
 
@@ -21,6 +23,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private lateinit var root: View
+    private val loader: LoaderView? by lazy { root.findViewById(R.id.loader_view) }
 
     abstract fun inflateView(): View
 
@@ -105,6 +108,8 @@ abstract class BaseActivity : AppCompatActivity() {
         val anim = getNavAnimations(intent, isStart = false)
         overridePendingTransition(anim.first, anim.second)
     }
+
+    protected open fun onShowLoader(show: Boolean) { loader?.isVisible = show }
 
     protected open fun onShowFeedback(message: String?, isPositive: Boolean) {
         if (isPositive && !message.isNullOrBlank() || !isPositive) {
