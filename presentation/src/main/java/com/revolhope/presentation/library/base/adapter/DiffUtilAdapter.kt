@@ -9,6 +9,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * Base adapter implementing [DiffUtil]. All adapter who needs to animate changes can extend from this
+ * and use the method [update] to notify changes.
+ */
 abstract class DiffUtilAdapter<T, V : View>(open val items: MutableList<T>) :
     RecyclerView.Adapter<ViewWrapper<V>>() {
 

@@ -22,6 +22,4 @@ interface SearchRepository {
 
     suspend fun fetchSpeciesByName(name: String): State<List<SpecieModel>>
 
-    suspend fun fetchSpecieById(id: Int): State<SpecieModel>
-
 }

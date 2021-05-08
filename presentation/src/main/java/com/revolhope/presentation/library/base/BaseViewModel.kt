@@ -11,6 +11,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.coroutines.CoroutineContext
 
+/**
+ * Base view model that contains logic for all app view models.
+ */
 abstract class BaseViewModel : ViewModel(), CoroutineScope {
 
     private val job = Job()
