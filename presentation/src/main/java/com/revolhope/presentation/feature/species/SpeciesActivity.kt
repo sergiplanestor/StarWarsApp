@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import com.revolhope.domain.feature.search.model.SpecieModel
 import com.revolhope.mylibra.R
 import com.revolhope.mylibra.databinding.ActivitySpeciesBinding
@@ -47,6 +48,7 @@ class SpeciesActivity : BaseActivity() {
     override fun bindViews() {
         super.bindViews()
         setupToolbar()
+        setupEmptyState()
         binding.speciesRecyclerView.adapter = SpeciesAdapter(species.toMutableList()).also { adapter = it }
     }
 
@@ -65,6 +67,11 @@ class SpeciesActivity : BaseActivity() {
     private fun setupToolbar() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close)
+    }
+
+    private fun setupEmptyState() {
+        binding.speciesRecyclerView.isVisible = species.isNotEmpty()
+        binding.emptyStateView.isVisible = species.isEmpty()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean =

@@ -39,6 +39,10 @@
     <string name="terrain">Terrain: %s</string>
     <string name="climate">Climate: %s</string>
 
+    <!-- Empty state -->
+    <string name="empty_state_title"><b>Oops…</b></string>
+    <string name="empty_state_description">No results have been found.\nTry with another query.</string>
+
     <!-- Content descriptions -->
     <string name="film_details_content_description">Film details</string>
     <string name="filter_content_description">Filter</string>

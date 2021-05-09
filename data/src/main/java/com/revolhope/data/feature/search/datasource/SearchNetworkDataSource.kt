@@ -18,8 +18,6 @@ class SearchNetworkDataSource @Inject constructor(private val restApi: StarWarsA
 
     suspend fun fetchSpecies(page: Int): SpeciesResponse = restApi.fetchSpecies(page)
 
-    suspend fun fetchSpecieById(id: Int): SpecieResponse = restApi.fetchSpecieById(id)
-
     suspend fun fetchPlanets(page: Int): PlanetsResponse = restApi.fetchPlanets(page)
 
     suspend fun fetchPlanetById(id: Int): PlanetResponse = restApi.fetchPlanetById(id)

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.View
 import androidx.activity.viewModels
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import com.revolhope.domain.feature.film.model.FilmModel
 import com.revolhope.domain.feature.search.model.CharacterModel
 import com.revolhope.domain.feature.search.model.PlanetModel
@@ -87,6 +88,12 @@ class DashboardActivity : BaseActivity() {
         if (::adapter.isInitialized) {
             adapter.update(films)
         }
+        setupEmptyState(films.isEmpty())
+    }
+
+    private fun setupEmptyState(show: Boolean) {
+        binding.filmsRecyclerView.isVisible = show.not()
+        binding.emptyStateView.isVisible = show
     }
 
     private fun onSearchTypeReceived(type: SearchTypeModel?) {
