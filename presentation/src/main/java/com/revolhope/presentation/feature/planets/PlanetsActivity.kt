@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.revolhope.domain.feature.search.model.PlanetModel
 import com.revolhope.mylibra.R
@@ -45,12 +46,18 @@ class PlanetsActivity : BaseActivity() {
     override fun bindViews() {
         super.bindViews()
         setupToolbar()
+        setupEmptyState()
         binding.planetsRecyclerView.adapter = PlanetsAdapter(planets.toMutableList())
     }
 
     private fun setupToolbar() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close)
+    }
+
+    private fun setupEmptyState() {
+        binding.planetsRecyclerView.isVisible = planets.isNotEmpty()
+        binding.emptyStateView.isVisible = planets.isEmpty()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean =

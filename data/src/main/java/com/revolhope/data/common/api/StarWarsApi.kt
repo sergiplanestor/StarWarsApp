@@ -28,9 +28,6 @@ interface StarWarsApi {
     @GET("api/species")
     suspend fun fetchSpecies(@Query("page") page: Int): SpeciesResponse
 
-    @GET("api/species/{id}")
-    suspend fun fetchSpecieById(@Path("id") id: Int): SpecieResponse
-
     @GET("api/planets")
     suspend fun fetchPlanets(@Query("page") page: Int): PlanetsResponse
 

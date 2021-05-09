@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import com.revolhope.domain.feature.search.model.CharacterModel
 import com.revolhope.mylibra.R
 import com.revolhope.mylibra.databinding.ActivityCharactersBinding
@@ -52,6 +53,7 @@ class CharactersActivity : BaseActivity() {
     override fun bindViews() {
         super.bindViews()
         setupToolbar()
+        setupEmptyState()
         binding.charactersRecyclerView.adapter =
             CharactersAdapter(characters.toMutableList()).also { adapter = it }
     }
@@ -71,6 +73,11 @@ class CharactersActivity : BaseActivity() {
     private fun setupToolbar() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         if (isModal) supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close)
+    }
+
+    private fun setupEmptyState() {
+        binding.charactersRecyclerView.isVisible = characters.isNotEmpty()
+        binding.emptyStateView.isVisible = characters.isEmpty()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean =

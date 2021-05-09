@@ -81,11 +81,6 @@ class SearchRepositoryImpl @Inject constructor(
             }.map(SpecieMapper::fromSpecieResponseToModel)
         }
 
-    override suspend fun fetchSpecieById(id: Int): State<SpecieModel> =
-        statefulBlock {
-            searchNetworkDataSource.fetchSpecieById(id).let(SpecieMapper::fromSpecieResponseToModel)
-        }
-
     private suspend fun fetchCharacters(): List<CharacterResponse> {
         if (SearchCacheDataSource.characters.isEmpty()) {
             var page = 0
