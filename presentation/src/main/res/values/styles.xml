@@ -84,14 +84,18 @@
 
     <!-- Separator -->
     <style name="Separator">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1dp</item>
         <item name="android:background">@color/primaryTextColorOpacity70</item>
         <item name="android:alpha">.5</item>
     </style>
 
-    <style name="Separator.Accent">
-        <item name="android:background">@color/primaryTextColorAccentOpacity70</item>
+    <!-- Inputs -->
+    <style name="Input" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="hintTextAppearance">@style/Text.Subtitle2</item>
+        <item name="errorEnabled">true</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="startIconTint">@color/gray_800</item>
+        <item name="endIconTint">@color/gray_800</item>
     </style>
 
     <!-- Buttons -->
@@ -128,10 +132,19 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <!-- Cards -->
+    <style name="Card">
+        <item name="cardUseCompatPadding">false</item>
+        <item name="android:layout_margin">@dimen/margin_standard_large</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+    </style>
+
     <!-- Icons -->
     <style name="Icon">
         <item name="android:layout_width">@dimen/icon_size_standard</item>
         <item name="android:layout_height">@dimen/icon_size_standard</item>
+        <item name="android:tint">@color/primaryTextColorOpacity70</item>
         <item name="tint">@color/primaryTextColorOpacity70</item>
         <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
         <item name="background">?android:attr/selectableItemBackgroundBorderless</item>

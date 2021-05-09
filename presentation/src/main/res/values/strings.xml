@@ -1,5 +1,55 @@
 <resources>
     <!-- App -->
     <string name="app_name">StarWarsApp</string>
+    <string name="app_name_visual">Star Wars\nApp</string>
+
+    <!-- Error -->
+    <string name="error_default">Oops… Something went wrong, try again later.</string>
+    <string name="search_query_invalid">Invalid value, search can not be blank.</string>
+
+    <!-- Filters -->
+    <string name="planets">Planets</string>
+    <string name="species">Species</string>
+    <string name="characters">Characters</string>
+    <string name="episodes">Episodes</string>
+    <string name="search_for">Search for %s…</string>
+    <string name="processing_query">Processing query…</string>
+
+    <!-- Character view -->
+    <string name="birth_year">Birth year: %s</string>
+    <string name="home_world">Home world: %s</string>
+    <string name="gender">Gender: %s</string>
+    <string name="height">Height: %s</string>
+    <string name="mass">Mass: %s</string>
+    <string name="physical_characteristics">Physical characteristics</string>
+
+    <!-- Specie view -->
+    <string name="classification">Classification: %s</string>
+    <string name="designation">Designation: %s</string>
+    <string name="language">Language: %s</string>
+    <string name="average_height">Average height: %s</string>
+    <string name="average_life_span">Average life span: %s</string>
+
+    <!-- Planet view -->
+    <string name="characteristics">Characteristics</string>
+    <string name="diameter">Diameter: %s</string>
+    <string name="orbital_period">Orbital period: %s</string>
+    <string name="rotation_period">Rotation period: %s</string>
+    <string name="population">Population: %s</string>
+    <string name="terrain">Terrain: %s</string>
+    <string name="climate">Climate: %s</string>
+
+    <!-- Empty state -->
+    <string name="empty_state_title"><b>Oops…</b></string>
+    <string name="empty_state_description">No results have been found.\nTry with another query.</string>
+
+    <!-- Content descriptions -->
+    <string name="film_details_content_description">Film details</string>
+    <string name="filter_content_description">Filter</string>
+    <string name="success_feedback_image_content_description">Success feedback</string>
+    <string name="success_feedback_fun_image_content_description">Fun success image feedback</string>
+    <string name="error_feedback_image_content_description">Error feedback</string>
+    <string name="error_feedback_fun_image_content_description">Fun error image feedback</string>
+
 
 </resources>
