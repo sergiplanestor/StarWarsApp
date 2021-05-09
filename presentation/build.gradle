@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    viewBinding {
+        enabled true
+    }
 }
 
 dependencies {
@@ -71,6 +74,10 @@ dependencies {
 
     // Testing
     testImplementation "junit:junit:$unit_junit"
+    testImplementation "io.mockk:mockk:$mockk"
+    testImplementation "androidx.arch.core:core-testing:$core_testing"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_test"
+
     androidTestImplementation "androidx.test.ext:$instrumental_junit"
     androidTestImplementation "androidx.test.espresso:espresso-core:$instrumental_espresso_core"
 }

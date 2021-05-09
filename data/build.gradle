@@ -15,6 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField "String", "STAR_WARS_API_BASE_URL", project.property('STAR_WARS_API_BASE_URL')
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -50,8 +51,17 @@ dependencies {
     // Android
     implementation "androidx.core:core-ktx:$core_ktx"
 
-    // Firebase
-    api platform('com.google.firebase:firebase-bom:26.7.0')
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofit_coroutines"
+
+    // OkHttp
+    // Set as 'api' in order to let app module access to it and dagger can have visibility
+    api "com.squareup.okhttp3:okhttp:$okhttp3"
+    api "com.squareup.okhttp3:okhttp-urlconnection:$okhttp3"
+    api "com.squareup.okhttp3:logging-interceptor:$okhttp3"
 
     // Testing
     testImplementation "junit:junit:$unit_junit"
